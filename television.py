@@ -1,22 +1,38 @@
 class Television:
+    """
+    Class representing details for a television object.
+    """
+
     MIN_VOLUME = 0
     MAX_VOLUME = 2
     MIN_CHANNEL = 0
     MAX_CHANNEL = 3
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """
+        Method to set default values of television object.
+        """
         self.__status = False
         self.__muted = False
         self.__volume = Television.MIN_VOLUME
         self.__channel = Television.MIN_CHANNEL
 
-    def power(self):
+    def power(self) -> None:
+        """
+        Method to change power Boolean.
+        """
         self.__status = not self.__status
 
-    def mute(self):
+    def mute(self) -> None:
+        """
+        Method to change muted Boolean.
+        """
         self.__muted = not self.__muted
 
-    def channel_up(self):
+    def channel_up(self) -> None:
+        """
+        Method to increase channel number.
+        """
         if self.__status:
             if Television.MIN_CHANNEL <= self.__channel <= (Television.MAX_CHANNEL - 1):
                 self.__channel += 1
@@ -26,7 +42,10 @@ class Television:
             pass
 
 
-    def channel_down(self):
+    def channel_down(self) -> None:
+        """
+        Method to decrease channel number.
+        """
         if self.__status:
             if (Television.MIN_CHANNEL + 1) <= self.__channel <= Television.MAX_CHANNEL:
                 self.__channel -= 1
@@ -35,7 +54,10 @@ class Television:
         else:
             pass
 
-    def volume_up(self):
+    def volume_up(self) -> None:
+        """
+        Method to increase volume.
+        """
         if self.__status:
             self.__muted = False
             if Television.MIN_VOLUME <= self.__volume <= (Television.MAX_VOLUME - 1):
@@ -45,7 +67,10 @@ class Television:
         else:
             pass
 
-    def volume_down(self):
+    def volume_down(self) -> None:
+        """
+        Method to decrease volume.
+        """
         if self.__status:
             self.__muted = False
             if (Television.MIN_VOLUME + 1) <= self.__volume <= Television.MAX_VOLUME:
@@ -55,7 +80,11 @@ class Television:
         else:
             pass
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """
+        Method to show television status.
+        :return: television status.
+        """
         if self.__muted:
             return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {Television.MIN_VOLUME}'
         else:
