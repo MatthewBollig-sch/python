@@ -27,7 +27,10 @@ class Television:
         """
         Method to change muted Boolean.
         """
-        self.__muted = not self.__muted
+        if self.__status:
+            self.__muted = not self.__muted
+        else:
+            pass
 
     def channel_up(self) -> None:
         """
